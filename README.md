@@ -198,3 +198,146 @@ if valida:
     print("Data válida")
 else:
     print("Data inválida")
+
+19.
+numero = int(input("Número (0-999): "))
+if numero < 0 or numero > 999:
+    print("Número inválido")
+else:
+    centenas = numero // 100
+    dezenas = (numero % 100) // 10
+    unidades = numero % 10
+    partes = []
+    if centenas > 0:
+        partes.append(f"{centenas} centena{'s' if centenas > 1 else ''}")
+    if dezenas > 0:
+        partes.append(f"{dezenas} dezena{'s' if dezenas > 1 else ''}")
+    if unidades > 0:
+        partes.append(f"{unidades} unidade{'s' if unidades > 1 else ''}")
+    print(" e ".join(partes))
+
+20.
+nota1 = float(input("Primeira nota: "))
+nota2 = float(input("Segunda nota: "))
+nota3 = float(input("Terceira nota: "))
+media = (nota1 + nota2 + nota3) / 3
+if media == 10:
+    print(f"Aprovado com Distinção - Média: {media:.2f}")
+elif media >= 7:
+    print(f"Aprovado - Média: {media:.2f}")
+else:
+    print(f"Reprovado - Média: {media:.2f}")
+
+21.
+valor = int(input("Valor do saque (10-600): "))
+if valor < 10 or valor > 600:
+    print("Valor inválido")
+else:
+    notas_100 = valor // 100
+    valor %= 100
+    notas_50 = valor // 50
+    valor %= 50
+    notas_10 = valor // 10
+    valor %= 10
+    notas_5 = valor // 5
+    notas_1 = valor % 5
+    if notas_100 > 0:
+        print(f"{notas_100} nota(s) de 100")
+    if notas_50 > 0:
+        print(f"{notas_50} nota(s) de 50")
+    if notas_10 > 0:
+        print(f"{notas_10} nota(s) de 10")
+    if notas_5 > 0:
+        print(f"{notas_5} nota(s) de 5")
+    if notas_1 > 0:
+        print(f"{notas_1} nota(s) de 1")
+
+22.
+numero = int(input("Número: "))
+if numero % 2 == 0:
+    print("Par")
+else:
+    print("Ímpar")
+
+23.
+numero = float(input("Número: "))
+if numero == int(numero):
+    print("Inteiro")
+else:
+    print("Decimal")
+
+24.
+n1 = float(input("Primeiro número: "))
+n2 = float(input("Segundo número: "))
+operacao = input("Operação (+, -, *, /): ")
+if operacao == '+':
+    resultado = n1 + n2
+elif operacao == '-':
+    resultado = n1 - n2
+elif operacao == '*':
+    resultado = n1 * n2
+elif operacao == '/':
+    resultado = n1 / n2
+else:
+    print("Operação inválida")
+    resultado = None
+if resultado is not None:
+    print(f"Resultado: {resultado}")
+    print(f"Par" if resultado % 2 == 0 else "Ímpar")
+    print(f"Positivo" if resultado >= 0 else "Negativo")
+    print(f"Inteiro" if resultado == int(resultado) else "Decimal")
+
+25.
+respostas = []
+respostas.append(input("Telefonou para a vítima? (s/n): ").lower())
+respostas.append(input("Esteve no local do crime? (s/n): ").lower())
+respostas.append(input("Mora perto da vítima? (s/n): ").lower())
+respostas.append(input("Devia para a vítima? (s/n): ").lower())
+respostas.append(input("Já trabalhou com a vítima? (s/n): ").lower())
+positivas = respostas.count('s')
+if positivas == 2:
+    print("Suspeita")
+elif 3 <= positivas <= 4:
+    print("Cúmplice")
+elif positivas == 5:
+    print("Assassino")
+else:
+    print("Inocente")
+
+26.
+litros = float(input("Litros: "))
+tipo = input("Tipo (A-álcool, G-gasolina): ").upper()
+if tipo == 'A':
+    preco = 1.90
+    if litros <= 20:
+        desconto = 0.03
+    else:
+        desconto = 0.05
+elif tipo == 'G':
+    preco = 2.50
+    if litros <= 20:
+        desconto = 0.04
+    else:
+        desconto = 0.06
+else:
+    print("Tipo inválido")
+    desconto = 0
+    preco = 0
+total = litros * preco * (1 - desconto)
+print(f"Total: R$ {total:.2f}")
+
+27.
+morangos = float(input("Kg de morangos: "))
+macas = float(input("Kg de maçãs: "))
+if morangos <= 5:
+    preco_morango = 2.50
+else:
+    preco_morango = 2.20
+if macas <= 5:
+    preco_maca = 1.80
+else:
+    preco_maca = 1.50
+total = (morangos * preco_morango) + (macas * preco_maca)
+if morangos + macas > 8 or total > 25:
+    total *= 0.9
+print(f"Total: R$ {total:.2f}")
